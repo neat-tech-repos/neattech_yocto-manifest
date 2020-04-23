@@ -1,76 +1,65 @@
-Variscite i.MX Yocto BSP
-========================
+# Install repo 
 
-Supported boards
-----------------
+To get the BSP you need to have `repo` installed and use it as:
 
-All of Variscite's i.MX based SOMs/boards
+Install the `repo` utility:
 
-(In addition to the FSL Community supported boards, which are listed in their release notes at
+```
+$ mkdir ~/bin
+$ curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$ chmod a+x ~/bin/repo
+```
 
-   http://freescale.github.io/doc/release-notes/current/)
+# Download BSP source for image
 
-Quick Start Guide
------------------
+After installed `repo` tool, we can download BSP source to use some commands as below:
 
-Once you have downloaded the source of all projects, you will have to
-call:
+```
+$ git config --global credential.helper 'cache --timeout=3600'
+$ GIT_BRANCH=default
+$ PATH=${PATH}:~/bin
+$ mkdir ~/neat-var-fslc-yocto
+$ cd ~/neat-var-fslc-yocto
+$ repo init -u https://github.com/deadpoolcode1/neattech_yocto-manifest -b $GIT_BRANCH
+$ CORES=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu || echo "$NUMBER_OF_PROCESSORS")
+$ repo sync -f -n -j 4 && repo sync -l -j $CORES
+```
 
-$: MACHINE=<machine> DISTRO=<distro> source setup-environment <build directory>
+# Build image
 
-After this step, you will be with everything need for build an image.
+To build image/flash image to SDCard or prepare swupdate image. We can use some commands as below  
 
-Contributing
-------------
+- Install all dependency packages (note: needs to be done only once when downloading the software)
 
-To contribute to the development of this BSP and/or submit patches for
-new boards please send the patches against the respective project as
-informated bellow:
+```
+$ cd ~/neat-var-fslc-yocto
+$ . modular-tools setup
+```
 
-The following layers are included on this release:
+- Build image 
 
- * poky: base build system and metadata
-   Path: sources/poky
-   GIT: git://git.yoctoproject.org/poky
-   Mailing list: https://lists.yoctoproject.org/listinfo/yocto
+```
+$ cd ~/neat-var-fslc-yocto
+$ . modular-tools build_image
+```
 
- * meta-openembedded: extra packages and features
-   Path: sources/meta-openembedded
-   GIT: git://git.openembedded.org/meta-openembedded
-   Mailing list: http://lists.linuxtogo.org/cgi-bin/mailman/listinfo/openembedded-devel
-   Note: Use [meta-oe] in subject to easy the processing
+- Append layers, needs to be done only one time, after first build, and then run build image again
 
- * meta-freescale: support for Freescale's processors and board
-   Path: sources/meta-freescale
-   Project: https://github.com/Freescale/meta-freescale
-   GIT: git://github.com/Freescale/meta-freescale.git
-   Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
+```
+$ cd ~/neat-var-fslc-yocto
+$ . modular-tools append_layers
+```
 
- * meta-freescale-3rdparty: support for boards using Freescale's processors
-   Path: sources/meta-freescale-3rdparty
-   Project: https://github.com/Freescale/meta-freescale-3rdparty
-   GIT: git://github.com/Freescale/meta-freescale-3rdparty.git
-   Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
-   Note: Use [3rdparty] in subject to easy the processing
+- Build update image 
 
- * meta-freescale-distro: distribution images and recipes
-   Path: sources/meta-freescale-distro
-   Project: https://github.com/Freescale/meta-freescale-distro
-   GIT: git://github.com/Freescale/meta-freescale-distro.git
-   Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
-   Note: Use [distro] in subject to easy the processing
+```
+$ cd ~/neat-var-fslc-yocto
+$ . modular-tools build_update_file
+```
 
- * meta-browser: web browser recipes
-   Path: sources/meta-browser
-   Project: https://github.com/OSSystems/meta-browser
-   GIT: git://github.com/OSSystems/meta-browser.git
+- Flash to SDCard
 
- * meta-qt5: Qt5 support
-   Path: sources/meta-qt5
-   Project: https://github.com/meta-qt5/meta-qt5
-   GIT: git://github.com/meta-qt5/meta-qt5.git
-
- * meta-variscite-fslc: support for Variscite's i.MX based SOMs/boards
-   Path: sources/meta-variscite-fslc
-   Project: https://github.com/varigit/meta-variscite-fslc
-   GIT: git://github.com/varigit/meta-variscite-fslc.git
+```
+$ cd ~/neat-var-fslc-yocto
+$ . modular-tools generate_sd_card
+```
