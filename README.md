@@ -1,48 +1,76 @@
-# Install repo 
+Variscite i.MX Yocto BSP
+========================
 
-To get the BSP you need to have `repo` installed and use it as:
+Supported boards
+----------------
 
-Install the `repo` utility:
+All of Variscite's i.MX based SOMs/boards
 
-```
-$ mkdir ~/bin
-$ curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-$ chmod a+x ~/bin/repo
-```
+(In addition to the FSL Community supported boards, which are listed in their release notes at
 
-# Download BSP source for image
+   http://freescale.github.io/doc/release-notes/current/)
 
-After installed `repo` tool, we can download BSP source to use some commands as below:
+Quick Start Guide
+-----------------
 
-```
-$ git config --global credential.helper 'cache --timeout=3600'
-$ GIT_BRANCH=default
-$ PATH=${PATH}:~/bin
-$ mkdir ~/neat-var-fslc-yocto
-$ cd ~/neat-var-fslc-yocto
-$ repo init -u https://github.com/deadpoolcode1/neattech_yocto-manifest -b $GIT_BRANCH
-$ CORES=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu || echo "$NUMBER_OF_PROCESSORS")
-$ repo sync -f -n -j 4 && repo sync -l -j $CORES
-```
+Once you have downloaded the source of all projects, you will have to
+call:
 
-# Build image
+$: MACHINE=<machine> DISTRO=<distro> source setup-environment <build directory>
 
-## first time only
-cd ~/neat-var-fslc-yocto
+After this step, you will be with everything need for build an image.
 
-. modular-tools setup                  #needs to be done only once when downloading the software
+Contributing
+------------
 
-. modular-tools build_image
+To contribute to the development of this BSP and/or submit patches for
+new boards please send the patches against the respective project as
+informated bellow:
 
-cd ../
+The following layers are included on this release:
 
-. modular-tools append_layers
+ * poky: base build system and metadata
+   Path: sources/poky
+   GIT: git://git.yoctoproject.org/poky
+   Mailing list: https://lists.yoctoproject.org/listinfo/yocto
 
-## on each build:
-. modular-tools build_update_file
+ * meta-openembedded: extra packages and features
+   Path: sources/meta-openembedded
+   GIT: git://git.openembedded.org/meta-openembedded
+   Mailing list: http://lists.linuxtogo.org/cgi-bin/mailman/listinfo/openembedded-devel
+   Note: Use [meta-oe] in subject to easy the processing
 
-cd ../
+ * meta-freescale: support for Freescale's processors and board
+   Path: sources/meta-freescale
+   Project: https://github.com/Freescale/meta-freescale
+   GIT: git://github.com/Freescale/meta-freescale.git
+   Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
 
-. modular-tools update_unit_image_prepare
+ * meta-freescale-3rdparty: support for boards using Freescale's processors
+   Path: sources/meta-freescale-3rdparty
+   Project: https://github.com/Freescale/meta-freescale-3rdparty
+   GIT: git://github.com/Freescale/meta-freescale-3rdparty.git
+   Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
+   Note: Use [3rdparty] in subject to easy the processing
 
-#then ssh to device and issue from device: ~/update_script.sh
+ * meta-freescale-distro: distribution images and recipes
+   Path: sources/meta-freescale-distro
+   Project: https://github.com/Freescale/meta-freescale-distro
+   GIT: git://github.com/Freescale/meta-freescale-distro.git
+   Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
+   Note: Use [distro] in subject to easy the processing
+
+ * meta-browser: web browser recipes
+   Path: sources/meta-browser
+   Project: https://github.com/OSSystems/meta-browser
+   GIT: git://github.com/OSSystems/meta-browser.git
+
+ * meta-qt5: Qt5 support
+   Path: sources/meta-qt5
+   Project: https://github.com/meta-qt5/meta-qt5
+   GIT: git://github.com/meta-qt5/meta-qt5.git
+
+ * meta-variscite-fslc: support for Variscite's i.MX based SOMs/boards
+   Path: sources/meta-variscite-fslc
+   Project: https://github.com/varigit/meta-variscite-fslc
+   GIT: git://github.com/varigit/meta-variscite-fslc.git
