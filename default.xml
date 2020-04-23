@@ -27,7 +27,7 @@
 	<copyfile dest="setup-environment" src="setup-environment"/>
   </project>
   <project remote="kamacode" path="sources/meta-kama" name="neattech_yocto-meta-kama" revision="57d00099d614e81682378c515d733435419bf30c" >
-          <copyfile dest="modular-tools" src="modular-tools"/>
+	  <copyfile dest="modular-tools" src="tools/modular-tools"/>
   </project>
 
 
