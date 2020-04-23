@@ -10,6 +10,7 @@
   <remote fetch="https://github.com/OSSystems"     name="OSSystems"/>
   <remote fetch="https://github.com/sbabic"        name="sbabic"/>
   <remote fetch="https://github.com/varigit"       name="variscite"/>
+  <remote fetch="https://github.com/deadpoolcode1" name="kamacode"/>
 
   <project remote="yocto"     revision="50f33d3bfebcbfb1538d932fb487cfd789872026" upstream="thud"   name="poky"                    path="sources/poky"/>
   <project remote="yocto"     revision="46fcbab00f7e01ded4609c09be89161783426f41" upstream="thud"   name="meta-freescale"          path="sources/meta-freescale"/>
@@ -25,5 +26,9 @@
 	<copyfile dest="README" src="README"/>
 	<copyfile dest="setup-environment" src="setup-environment"/>
   </project>
+  <project remote="kamacode" path="sources/meta-kama" name="neattech_yocto-meta-kama" revision="57d00099d614e81682378c515d733435419bf30c" >
+          <copyfile dest="modular-tools" src="modular-tools"/>
+  </project>
+
 
 </manifest>
