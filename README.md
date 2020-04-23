@@ -22,7 +22,7 @@ $ mkdir ~/neat-var-fslc-yocto
 $ cd ~/neat-var-fslc-yocto
 $ repo init -u https://github.com/deadpoolcode1/neattech_yocto-manifest -b $GIT_BRANCH
 $ CORES=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu || echo "$NUMBER_OF_PROCESSORS")
-$ repo sync -f -n -j 4 && repo sync -l -j $CORES
+$ repo sync -f -n -j 4 --force-sync && repo sync -l -j $CORES --force-sync
 ```
 
 # Build image
