@@ -61,5 +61,6 @@ $ . modular-tools build_update_file
 
 ```
 $ cd ~/neat-var-fslc-yocto
+$ . modular-tools build_sd_image
 $ . modular-tools generate_sd_card
 ```
