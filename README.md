@@ -33,6 +33,7 @@ To build image/flash image to SDCard or prepare swupdate image. We can use some 
 
 ```
 $ cd ~/neat-var-fslc-yocto
+
 $ . modular-tools setup
 ```
 
@@ -40,6 +41,7 @@ $ . modular-tools setup
 
 ```
 $ cd ~/neat-var-fslc-yocto
+
 $ . modular-tools build_image
 `
 on this stage we expect to have an error at some point, this is OK and expected``
@@ -48,6 +50,7 @@ on this stage we expect to have an error at some point, this is OK and expected`
 
 ```
 $ cd ~/neat-var-fslc-yocto
+
 $ . modular-tools append_layers
 ```
 
@@ -55,6 +58,7 @@ $ . modular-tools append_layers
 
 ```
 $ cd ~/neat-var-fslc-yocto
+
 $ . modular-tools build_update_file
 ```
 
@@ -62,6 +66,8 @@ $ . modular-tools build_update_file
 
 ```
 $ cd ~/neat-var-fslc-yocto
+
 $ . modular-tools build_sd_image
+
 $ . modular-tools generate_sd_card
 ```
