@@ -69,5 +69,9 @@ $ cd ~/neat-var-fslc-yocto
 
 $ . modular-tools build_sd_image
 
+$ cd ~/neat-var-fslc-yocto
+
 $ . modular-tools generate_sd_card
+
+* in order to find drive letter enter command "df", and view SD card drive (for exampleif drive is sdb, drive letter is b)
 ```
