@@ -41,7 +41,8 @@ $ . modular-tools setup
 ```
 $ cd ~/neat-var-fslc-yocto
 $ . modular-tools build_image
-```
+`
+on this stage we expect to have an error at some point, this is OK and expected``
 
 - Append layers, needs to be done only one time, after first build, and then run build image again
 
