@@ -73,5 +73,5 @@ $ cd ~/neat-var-fslc-yocto
 
 $ . modular-tools generate_sd_card
 
-* in order to find drive letter enter command "df", and view SD card drive (for exampleif drive is sdb, drive letter is b)
+* in order to find drive letter enter command "df", and view SD card drive (for exampleif ,[/dev/sdb1   media/neat/BOOT-VAR6UL]  -> drive letter is b (from sd b 1)
 ```
