@@ -62,7 +62,7 @@ $ cd ~/neat-var-fslc-yocto
 $ . modular-tools build_update_file
 ```
 
-- Flash to SDCard
+- Flash to SDCard - the SD card flash needs to be done only once per device, this sets different  emmc partitions supporting swupdate 
 
 ```
 $ cd ~/neat-var-fslc-yocto
