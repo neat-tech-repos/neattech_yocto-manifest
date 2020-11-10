@@ -10,7 +10,7 @@ $ curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/r
 $ chmod a+x ~/bin/repo
 ```
 
-# Download BSP source for image
+# 2. Download BSP source for image
 
 After installed `repo` tool, we can download BSP source to use some commands as below:
 
@@ -82,3 +82,16 @@ $ . modular-tools generate_sd_card
 
 * in order to find drive letter enter command "df", and view SD card drive (for exampleif ,[/dev/sdb1   media/neat/BOOT-VAR6UL]  -> drive letter is b (from sd b 1)
 ```
+
+# Activate react support
+```
+at first device powerup issue the following command:
+npm install -g serve
+this will install the needed support for react, this needs to be done only once after flashing the device
+```
+
+
+
+
+
+
