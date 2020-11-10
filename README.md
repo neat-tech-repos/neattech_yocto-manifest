@@ -73,7 +73,7 @@ $ cd ~/neat-var-fslc-yocto
 
 $ . modular-tools build_update_file
 ```
-## Check if initial update from SD card was done to a specific SON
+## Check if initial update from SD card was done to a specific SOM
 ```
 connect to SOM using terminal
 write : swupdate
@@ -133,6 +133,22 @@ npm install -g serve
 this will install the needed support for react, this needs to be done only once after flashing the device
 ```
 
+# Update recips, neattech specific software additional to the OS 
+```
+notice all recips are taken from: 
+https://github.com/deadpoolcode1/neattech_yocto-meta-kama
+this is being pulled whle performing repo sync
+notice that repo xml file is located under .repo/manifasts/default.xml
+and specific git version is specified under:
+ <project remote="kamacode" path="sources/meta-kama" name="neattech_yocto-meta-kama" revision="de378558c10950de24ea2d7ed77b70e20ecdf491" >
+ 
+ so in order to update recips do the following:
+ 1. edit the directory : sources/meta-kama
+ 2. push to remote : https://github.com/deadpoolcode1/neattech_yocto-meta-kama
+ 3. update repo file under: .repo/manifasts/default.xml
+ 4. push to remote : https://github.com/deadpoolcode1/neattech_yocto-manifest
+
+```
 
 
 
