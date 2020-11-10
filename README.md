@@ -73,6 +73,13 @@ $ cd ~/neat-var-fslc-yocto
 
 $ . modular-tools build_update_file
 ```
+## Check if initial update from SD card was done to a specific SON
+```
+connect to SOM using terminal
+write : swupdate
+see if swupdate exists, if so then SD update was already done and no need to re-perform
+```
+
 
 ## Flash image to SD card 
 
