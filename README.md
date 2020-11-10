@@ -24,6 +24,13 @@ $ repo init -u https://github.com/deadpoolcode1/neattech_yocto-manifest -b $GIT_
 $ CORES=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu || echo "$NUMBER_OF_PROCESSORS")
 $ repo sync -f -n -j 4 --force-sync && repo sync -l -j $CORES --force-sync
 ```
+# Theory of operation
+```
+the device usually boots from EMMC, however, if a new SOM is being used, it's partition needs to be modified
+in order to support software update (double partition is being used, so if update failes it can automatically rollback)
+so only once per new SOM device, we need to boot device from SD card, issue update command from SD card to partition and flash EMMC
+with siftware upgrade support, then we can normally boot from EMMC and update images 
+```
 
 # Build image
 
