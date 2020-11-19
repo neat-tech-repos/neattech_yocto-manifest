@@ -20,13 +20,14 @@
   <project remote="QT5"       revision="0630018c0033c91fddda62a49f59a82ba6ec6850" upstream="thud"   name="meta-qt5"                path="sources/meta-qt5"/>
   <project remote="OSSystems" revision="75640e14e325479c076b6272b646be7a239c18aa" upstream="master" name="meta-browser"            path="sources/meta-browser"/>
   <project remote="sbabic"    revision="66af6e7e019b07b48facfd68be3c4ab2094502a4" upstream="thud"   name="meta-swupdate"           path="sources/meta-swupdate"/>
-  <project remote="variscite" revision="61912106e5535eb8da65587133b64a527c394e5e" upstream="thud"   name="meta-variscite-fslc"     path="sources/meta-variscite-fslc"/>
+  <project remote="kamacode"  revision="default" name="neattech_meta-variscite-fslc"     path="sources/meta-variscite-fslc"/>
+  <project remote="kamacode"  revision="imx_4.14.78_1.0.0_ga_var01" name="neattech_imx6_kernel"     path="linux-imx"/>
 
   <project remote="variscite" revision="pyro" name="variscite-bsp-base" path="sources/base">
 	<copyfile dest="README" src="README"/>
 	<copyfile dest="setup-environment" src="setup-environment"/>
   </project>
-  <project remote="kamacode" path="sources/meta-kama" name="neattech_yocto-meta-kama" revision="de378558c10950de24ea2d7ed77b70e20ecdf491" >
+  <project remote="kamacode" path="sources/meta-kama" name="neattech_yocto-meta-kama" revision="default" >
 	  <copyfile dest="modular-tools" src="tools/modular-tools"/>
   </project>
 
