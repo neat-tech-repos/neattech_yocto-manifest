@@ -20,7 +20,7 @@ $ GIT_BRANCH=default
 $ PATH=${PATH}:~/bin
 $ mkdir ~/neat-var-fslc-yocto
 $ cd ~/neat-var-fslc-yocto
-$ repo init -u https://github.com/deadpoolcode1/neattech_yocto-manifest -b $GIT_BRANCH
+$ repo init -u https://github.com/neat-tech-repos/neattech_yocto-manifest -b $GIT_BRANCH
 $ CORES=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu || echo "$NUMBER_OF_PROCESSORS")
 $ repo sync -f -n -j 4 --force-sync && repo sync -l -j $CORES --force-sync
 ```
@@ -136,7 +136,7 @@ this will install the needed support for react, this needs to be done only once 
 # Update recips, neattech specific software additional to the OS 
 ```
 notice all recips are taken from: 
-https://github.com/deadpoolcode1/neattech_yocto-meta-kama
+https://github.com/neat-tech-repos/neattech_yocto-meta-kama
 this is being pulled whle performing repo sync
 notice that repo xml file is located under .repo/manifasts/default.xml
 and specific git version is specified under:
@@ -144,9 +144,9 @@ and specific git version is specified under:
  
  so in order to update recips do the following:
  1. edit the directory : sources/meta-kama
- 2. push to remote : https://github.com/deadpoolcode1/neattech_yocto-meta-kama
+ 2. push to remote : https://github.com/neat-tech-repos/neattech_yocto-meta-kama
  3. update repo file under: .repo/manifasts/default.xml
- 4. push to remote : https://github.com/deadpoolcode1/neattech_yocto-manifest
+ 4. push to remote : https://github.com/neat-tech-repos/neattech_yocto-manifest
 
 ```
 
