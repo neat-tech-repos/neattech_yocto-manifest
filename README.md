@@ -76,6 +76,7 @@ $ . modular-tools build_update_file
 ## Check if initial update from SD card was done to a specific SOM
 ```
 connect to SOM using terminal
+sudo picocom -b 115200 /dev/ttyUSB0
 write : swupdate
 see if swupdate exists, if so then SD update was already done and no need to re-perform
 ```
