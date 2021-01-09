@@ -12,7 +12,7 @@
   <remote fetch="https://github.com/varigit"       name="variscite"/>
   <remote fetch="https://github.com/neat-tech-repos" name="kamacode"/>
 
-  <project remote="yocto"     revision="50f33d3bfebcbfb1538d932fb487cfd789872026" upstream="thud"   name="poky"                    path="sources/poky"/>
+  <project remote="yocto"     revision="master"  name="neattech_poky"  path="sources/poky"/>
   <project remote="yocto"     revision="46fcbab00f7e01ded4609c09be89161783426f41" upstream="thud"   name="meta-freescale"          path="sources/meta-freescale"/>
   <project remote="oe"        revision="4cd3a39f22a2712bfa8fc657d09fe2c7765a4005" upstream="thud"   name="meta-openembedded"       path="sources/meta-openembedded"/>
   <project remote="freescale" revision="c4b5ac6b20e4245ce0630e9197313aaef999a331" upstream="thud"   name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty"/>
