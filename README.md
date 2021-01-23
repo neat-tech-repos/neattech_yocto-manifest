@@ -134,6 +134,11 @@ npm install -g serve
 this will install the needed support for react, this needs to be done only once after flashing the device
 ```
 
+# intial command to support auto chromium upload
+```
+useradd -m -p 12345678 chromeuser
+```
+
 # Update recips, neattech specific software additional to the OS 
 ```
 notice all recips are taken from: 
