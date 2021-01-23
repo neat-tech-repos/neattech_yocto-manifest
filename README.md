@@ -152,6 +152,56 @@ and specific git version is specified under:
 ```
 
 
+# Update boot images
+```
+notice there are 3 boot images
+first is called "splash image" and is shown first thing on start
+second is called "logo image" and it's shown on upper left corner of screen on kernel load
+third is called "fb image", and it's shown after the "logo image" untill system sinishing loading
 
+this is how to setup and change each one of them:
+
+splash image:
+
+image should be png, size 80x80
+on pc :
+apt-get install netpbm
+pngtopnm /path/to/image.png | ppmquant -fs 223 | pnmtoplainpnm > logo_variscite_clut224.ppm
+and copy file "logo_variscite_clut224.ppm" under: "linux-imx/drivers/video/logo/logo_variscite_clut224.ppm"
+
+
+logo image:
+
+copy bmp file , 800x480 to : sources/meta-variscite-fslc/recipes-bsp/u-boot/u-boot-splash/splash.bmp
+
+fb image: 
+
+use this script :
+
+#!/bin/sh
+#
+# SPDX-License-Identifier: GPL-2.0-or-later
+#
+
+set -e
+
+imageh=`basename $1 .png`-img.h
+name="${2}_IMG"
+gdk-pixbuf-csource --macros $1 > $imageh.tmp
+sed -e "s/MY_PIXBUF/${name}/g" -e "s/guint8/uint8/g" $imageh.tmp > $imageh && rm $imageh.tmp
+
+run as: 
+
+./psplash_to_h.sh psplash_white.png
+
+result file would be :  "psplash_white-img.h"
+
+copy as : 
+
+cp psplash_white-img.h ~/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes-core/psplash/files/psplash-poky-img.h
+
+
+
+```
 
 
