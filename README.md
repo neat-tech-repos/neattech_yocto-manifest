@@ -166,18 +166,24 @@ third is called "fb image", and it's shown after the "logo image" untill system 
 
 this is how to setup and change each one of them:
 
+
 splash image:
+
+copy bmp file , 800x480 to : ~neat/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes-bsp/u-boot/u-boot-splash/splash.bmp
+cp <filename.bmp>  ~neat/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes-bsp/u-boot/u-boot-splash/splash.bmp
+example: cp /home/neat/Downloads/splash.bmp ~neat/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes-bsp/u-boot/u-boot-splash/splash.bmp
+
+logo image:
 
 image should be png, size 80x80
 on pc :
 apt-get install netpbm
+//notice output image name must be named as logo_variscite_clut224.ppm
 pngtopnm /path/to/image.png | ppmquant -fs 223 | pnmtoplainpnm > logo_variscite_clut224.ppm
 and copy file "logo_variscite_clut224.ppm" under: "linux-imx/drivers/video/logo/logo_variscite_clut224.ppm"
+cp <logo_variscite_clut224.ppm> ~neat/neat-var-fslc-yocto/linux-imx/drivers/video/logo/logo_variscite_clut224.ppm
 
 
-logo image:
-
-copy bmp file , 800x480 to : sources/meta-variscite-fslc/recipes-bsp/u-boot/u-boot-splash/splash.bmp
 
 fb image: 
 
@@ -195,8 +201,18 @@ name="${2}_IMG"
 gdk-pixbuf-csource --macros $1 > $imageh.tmp
 sed -e "s/MY_PIXBUF/${name}/g" -e "s/guint8/uint8/g" $imageh.tmp > $imageh && rm $imageh.tmp
 
-run as: 
 
+for example :
+
+cd /tmp/
+nano splash_to_h.sh
+now copy the script as described above
+chmod 777 splash_to_h.sh
+./psplash_to_h.sh psplash_white.png
+
+
+run as: 
+cd /tmp/
 ./psplash_to_h.sh psplash_white.png
 
 result file would be :  "psplash_white-img.h"
