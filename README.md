@@ -248,19 +248,7 @@ pip install nrfutil
 nrfutil --help
 ```
 
-Step 3: Copy private.key and hex file to iMX by scp or some remote tools
-
-Step 4: Generate new firmware package as normall command 
-
-```
-nrfutil pkg generate --application ble_app_blinky_pca10040_s132.hex --application-version 2 --hw-version 52 --sd-req 0xCB --key-file private.key test.zip
-```
-
-![Example package](doc/img/iMX_Package.png)
-
-**Notice** Please increase application-version 
-
-Step 5: Upgrade via serial port.
+Step 4: Upgrade via serial port.
 
 **Notice** To find serial port of nRF52832, we can use commands. `(It depends on your hardware serial type)`
 
