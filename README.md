@@ -225,4 +225,57 @@ cp psplash_white-img.h ~/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes
 
 ```
 
+# Prepare and install package with iMX
+
+To prepare new firmware and package with iMX environment, we can setup it normally like PC. Here are some steps as below
+
+Step 1: Check python and pip to make sure iMX environment is ready. If not, please install by following command below
+
+```
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+python3 get-pip.py --user
+```
+
+Step 2: Install nrfutil by command as below
+
+```
+pip install nrfutil
+```
+
+**Notice** To make sure nrfutil is ready. Please check with command
+
+```
+nrfutil --help
+```
+
+Step 3: Copy private.key and hex file to iMX by scp or some remote tools
+
+Step 4: Generate new firmware package as normall command 
+
+```
+nrfutil pkg generate --application ble_app_blinky_pca10040_s132.hex --application-version 2 --hw-version 52 --sd-req 0xCB --key-file private.key test.zip
+```
+
+![Example package](doc/img/iMX_Package.png)
+
+**Notice** Please increase application-version 
+
+Step 5: Upgrade via serial port.
+
+**Notice** To find serial port of nRF52832, we can use commands. `(It depends on your hardware serial type)`
+
+```
+dmesg | grep cdc_acm
+or
+ls -l /dev | grep ttyACM 
+```
+
+
+To upgrade firmware via serial port. Run command as below 
+
+```
+nrfutil -vvv dfu serial -pkg test.zip -p /dev/ttyACM0
+notice /dev/ttyACM0 is serial port name connected to the Nordic, name may be different depends on the platform
+```
+
 
