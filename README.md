@@ -225,7 +225,7 @@ cp psplash_white-img.h ~/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes
 
 ```
 
-# Prepare and install package with iMX
+# Prepare and install NRFUTIL
 
 To prepare new firmware and package with iMX environment, we can setup it normally like PC. Here are some steps as below
 
