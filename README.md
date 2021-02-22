@@ -171,7 +171,7 @@ To cancel the autoload delete the "node app.js" from the following line from the
 
 additionally, remove the line for starting node JS from this location:
 
-/opt/bar.sh 
+nano /opt/bar.sh 
 
 notice this line:
 
