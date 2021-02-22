@@ -150,26 +150,35 @@ and specific git version is specified under:
  4. push to remote : https://github.com/neat-tech-repos/neattech_yocto-manifest
 
 ```
-# Cancel Autoload for debugging
+# Cancel Autoload for debugging (only within the Linux system)
+
 
 The script is located at :
+
 neat@neat-System-Product-Name:~/neat-var-fslc-yocto/sources/poky$ 
 
 To open the script file type the following:
+
 nano meta/recipes-extended/cronie/files/start_application.sh
 
 After changing the file save it with ctr+x.
 
 To cancel the autoload delete the "node app.js" from the following line from the start_application.sh:
+
 @reboot root cd /opt/server/ && systemctl stop nodejs-server && systemctl restart run-chromium && node app.js
+
+# Cancel Autoload for debugging (only within the SOM)
 
 additionally, remove the line for starting node JS from this location:
 
 /opt/bar.sh 
 
 notice this line:
+
 cd /opt/server/ && node app.js &
+
 change to this :
+
 cd /opt/server/ 
 
 
