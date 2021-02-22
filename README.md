@@ -134,11 +134,6 @@ npm install -g serve
 this will install the needed support for react, this needs to be done only once after flashing the device
 ```
 
-# intial command to support auto chromium upload
-```
-useradd -m -p 12345678 chromeuser
-```
-
 # Update recips, neattech specific software additional to the OS 
 ```
 notice all recips are taken from: 
@@ -167,6 +162,16 @@ After changing the file save it with ctr+x.
 
 To cancel the autoload delete the "node app.js" from the following line from the start_application.sh:
 @reboot root cd /opt/server/ && systemctl stop nodejs-server && systemctl restart run-chromium && node app.js
+
+additionally, remove the line for starting node JS from this location:
+
+/opt/bar.sh 
+
+notice this line:
+cd /opt/server/ && node app.js &
+change to this :
+cd /opt/server/ 
+
 
 # Update boot images
 ```
@@ -276,5 +281,3 @@ To upgrade firmware via serial port. Run command as below
 nrfutil -vvv dfu serial -pkg test.zip -p /dev/ttyACM0
 notice /dev/ttyACM0 is serial port name connected to the Nordic, name may be different depends on the platform
 ```
-
-
