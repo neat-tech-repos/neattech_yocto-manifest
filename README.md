@@ -252,16 +252,8 @@ cp psplash_white-img.h ~/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes
 
 # Prepare and install NRFUTIL
 
-To prepare new firmware and package with iMX environment, we can setup it normally like PC. Here are some steps as below
 
-Step 1: Check python and pip to make sure iMX environment is ready. If not, please install by following command below
-
-```
-curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-python3 get-pip.py --user
-```
-
-Step 2: Install nrfutil by command as below
+ Install nrfutil by command as below
 
 ```
 . modular-tools nrfutil_install
@@ -276,7 +268,7 @@ export LANG=en_US.utf-8
 /opt/server/nrfutil --help
 ```
 
-Step 4: Upgrade via serial port.
+Step 3: Upgrade via serial port.
 
 **Notice** To find serial port of nRF52832, we can use commands. `(It depends on your hardware serial type)`
 
@@ -290,6 +282,6 @@ ls -l /dev | grep ttyACM
 To upgrade firmware via serial port. Run command as below 
 
 ```
-nrfutil -vvv dfu serial -pkg test.zip -p /dev/ttyACM0
+/opt/server/nrfutil -vvv dfu serial -pkg test.zip -p /dev/ttyACM0
 notice /dev/ttyACM0 is serial port name connected to the Nordic, name may be different depends on the platform
 ```
