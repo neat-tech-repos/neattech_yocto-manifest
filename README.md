@@ -264,13 +264,16 @@ python3 get-pip.py --user
 Step 2: Install nrfutil by command as below
 
 ```
-pip install nrfutil
+. modular-tools nrfutil_install
 ```
 
 **Notice** To make sure nrfutil is ready. Please check with command
 
 ```
-nrfutil --help
+fron the SOM terminal: 
+export LC_ALL=en_US.utf-8
+export LANG=en_US.utf-8
+/opt/server/nrfutil --help
 ```
 
 Step 4: Upgrade via serial port.
