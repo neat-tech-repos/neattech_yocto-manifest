@@ -233,12 +233,12 @@ cd /tmp/
 nano splash_to_h.sh
 now copy the script as described above
 chmod 777 splash_to_h.sh
-./psplash_to_h.sh psplash_white.png
+./splash_to_h.sh psplash_white.png
 
 
 run as: 
 cd /tmp/
-./psplash_to_h.sh psplash_white.png
+./splash_to_h.sh psplash_white.png
 
 result file would be :  "psplash_white-img.h"
 
