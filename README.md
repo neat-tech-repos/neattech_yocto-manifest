@@ -187,6 +187,9 @@ change line "node /opt/server/app.js to"
 
 #node /opt/server/app.js
 
+nano ~/../../etc/cron.d/start_application.sh
+
+chenge first line to : @reboot root cd /opt/server/ && systemctl stop nodejs-server && systemctl restart run-chromium                                                           
 
 # Update boot images
 ```
