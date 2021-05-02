@@ -181,6 +181,12 @@ change to this :
 
 cd /opt/server/ 
 
+nano /opt/script.sh
+
+change line "node /opt/server/app.js to"
+
+#node /opt/server/app.js
+
 
 # Update boot images
 ```
