@@ -10,24 +10,25 @@
   <remote fetch="https://github.com/OSSystems"     name="OSSystems"/>
   <remote fetch="https://github.com/sbabic"        name="sbabic"/>
   <remote fetch="https://github.com/varigit"       name="variscite"/>
-  <remote fetch="https://github.com/neat-tech-repos" name="kamacode"/>
+  <remote fetch="https://github.com/neat-tech-repos" name="neat"/>
 
-  <project remote="kamacode"     revision="master"  name="neattech_poky"  path="sources/poky"/>
-  <project remote="yocto"     revision="46fcbab00f7e01ded4609c09be89161783426f41" upstream="thud"   name="meta-freescale"          path="sources/meta-freescale"/>
-  <project remote="oe"        revision="4cd3a39f22a2712bfa8fc657d09fe2c7765a4005" upstream="thud"   name="meta-openembedded"       path="sources/meta-openembedded"/>
-  <project remote="freescale" revision="c4b5ac6b20e4245ce0630e9197313aaef999a331" upstream="thud"   name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty"/>
-  <project remote="freescale" revision="4a244af3993ae662624c6f615464e6806cc719a2" upstream="thud"   name="meta-freescale-distro"   path="sources/meta-freescale-distro"/>
-  <project remote="QT5"       revision="0630018c0033c91fddda62a49f59a82ba6ec6850" upstream="thud"   name="meta-qt5"                path="sources/meta-qt5"/>
-  <project remote="OSSystems" revision="75640e14e325479c076b6272b646be7a239c18aa" upstream="master" name="meta-browser"            path="sources/meta-browser"/>
-  <project remote="sbabic"    revision="66af6e7e019b07b48facfd68be3c4ab2094502a4" upstream="thud"   name="meta-swupdate"           path="sources/meta-swupdate"/>
-  <project remote="kamacode"  revision="default" name="neattech_meta-variscite-fslc"     path="sources/meta-variscite-fslc"/>
-  <project remote="kamacode"  revision="imx_4.14.78_1.0.0_ga_var01" name="neattech_imx6_kernel"     path="linux-imx"/>
+  <project remote="neat"      revision="thud"                         name="neattech_poky"                path="sources/poky"/>
+  <project remote="neat"      revision="thud"                         name="neattech_meta-variscite-fslc" path="sources/meta-variscite-fslc"/>
+  <project remote="neat"      revision="imx_4.14.78_1.0.0_ga_var01"   name="neattech_imx6_kernel"         path="linux-imx"/>
 
-  <project remote="variscite" revision="pyro" name="variscite-bsp-base" path="sources/base">
+  <project remote="variscite" revision="thud"                         name="variscite-bsp-base"           path="sources/base">
+  <project remote="yocto"     revision="thud"                         name="meta-freescale"               path="sources/meta-freescale"/>
+  <project remote="oe"        revision="thud"                         name="meta-openembedded"            path="sources/meta-openembedded"/>
+  <project remote="freescale" revision="thud"                         name="meta-freescale-3rdparty"      path="sources/meta-freescale-3rdparty"/>
+  <project remote="freescale" revision="thud"                         name="meta-freescale-distro"        path="sources/meta-freescale-distro"/>
+  <project remote="QT5"       revision="thud"                         name="meta-qt5"                     path="sources/meta-qt5"/>
+  <project remote="OSSystems" revision="master"                       name="meta-browser"                 path="sources/meta-browser"/>
+  <project remote="sbabic"    revision="thud"                         name="meta-swupdate"                path="sources/meta-swupdate"/>
+
 	<copyfile dest="README" src="README"/>
 	<copyfile dest="setup-environment" src="setup-environment"/>
   </project>
-  <project remote="kamacode" path="sources/meta-kama" name="neattech_yocto-meta-kama" revision="master" >
+  <project remote="neat" revision="thud"                              name="neattech_yocto-meta-kama"     path="sources/meta-kama" >
 	  <copyfile dest="modular-tools" src="tools/modular-tools"/>
   </project>
 
