@@ -16,13 +16,14 @@ After installed `repo` tool, we can download BSP source to use some commands as 
 
 ```shell
 git config --global credential.helper 'cache --timeout=3600'
-GIT_BRANCH=default
+GIT_BRANCH=dunfell
 PATH=${PATH}:~/bin
 mkdir ~/neat-var-fslc-yocto
 cd ~/neat-var-fslc-yocto
 repo init -u https://github.com/neat-tech-repos/neattech_yocto-manifest -b $GIT_BRANCH
 CORES=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu || echo "$NUMBER_OF_PROCESSORS")
-repo sync -f -n -j 4 --force-sync && repo sync -l -j $CORES --force-sync
+repo sync -f -n -j 4 --force-sync
+repo sync -l -j $CORES --force-sync
 ```
 
 ## Theory of operation
