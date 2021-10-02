@@ -48,7 +48,7 @@ cd ~/neat-var-fslc-yocto
 
 ```shell
 cd ~/neat-var-fslc-yocto
- modular-tools build_image
+. modular-tools build_image
 ```
 
 > On this stage we expect to have an error at some point, this is OK and expected
