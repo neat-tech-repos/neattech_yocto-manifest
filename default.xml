@@ -11,6 +11,7 @@
   <remote fetch="https://github.com/sbabic"          name="sbabic"/>
   <remote fetch="https://github.com/varigit"         name="variscite"/>
   <remote fetch="https://github.com/neat-tech-repos" name="neat"/>
+  <remote fetch="https://github.com/kraj"            name="kraj"/>
 
   <project remote="neat"                                              name="neattech_poky"                path="sources/poky"/>
   <project remote="neat"                                              name="neattech_meta-variscite-fslc" path="sources/meta-variscite-fslc"/>
@@ -24,6 +25,7 @@
   <project remote="QT5"       revision="thud"                         name="meta-qt5"                     path="sources/meta-qt5"/>
   <project remote="sbabic"    revision="thud"                         name="meta-swupdate"                path="sources/meta-swupdate"/>
   <project remote="OSSystems" revision="thud"                         name="meta-browser"                 path="sources/meta-browser"/>
+  <project remote="kraj"      revision="thud"                         name="meta-clang"                   path="sources/meta-clang"/>
 
   <project remote="variscite" revision="thud"   name="variscite-bsp-base"           path="sources/base">
 	  <copyfile dest="README" src="README"/>
