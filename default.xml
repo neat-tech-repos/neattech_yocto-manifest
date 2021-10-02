@@ -3,32 +3,32 @@
 
   <default sync-j="4" revision="thud"/>
 
-  <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
-  <remote fetch="https://github.com/openembedded"  name="oe"/>
-  <remote fetch="https://github.com/Freescale"     name="freescale"/>
-  <remote fetch="https://github.com/meta-qt5"      name="QT5"/>
-  <remote fetch="https://github.com/OSSystems"     name="OSSystems"/>
-  <remote fetch="https://github.com/sbabic"        name="sbabic"/>
-  <remote fetch="https://github.com/varigit"       name="variscite"/>
+  <remote fetch="https://git.yoctoproject.org/git"   name="yocto"/>
+  <remote fetch="https://github.com/openembedded"    name="oe"/>
+  <remote fetch="https://github.com/Freescale"       name="freescale"/>
+  <remote fetch="https://github.com/meta-qt5"        name="QT5"/>
+  <remote fetch="https://github.com/OSSystems"       name="OSSystems"/>
+  <remote fetch="https://github.com/sbabic"          name="sbabic"/>
+  <remote fetch="https://github.com/varigit"         name="variscite"/>
   <remote fetch="https://github.com/neat-tech-repos" name="neat"/>
 
-  <project remote="neat"      revision="thud"                         name="neattech_poky"                path="sources/poky"/>
-  <project remote="neat"      revision="thud"                         name="neattech_meta-variscite-fslc" path="sources/meta-variscite-fslc"/>
+  <project remote="neat"                                              name="neattech_poky"                path="sources/poky"/>
+  <project remote="neat"                                              name="neattech_meta-variscite-fslc" path="sources/meta-variscite-fslc"/>
   <project remote="neat"      revision="imx_4.14.78_1.0.0_ga_var01"   name="neattech_imx6_kernel"         path="linux-imx"/>
 
-  <project remote="variscite" revision="thud"                         name="variscite-bsp-base"           path="sources/base">
-  <project remote="yocto"     revision="thud"                         name="meta-freescale"               path="sources/meta-freescale"/>
-  <project remote="oe"        revision="thud"                         name="meta-openembedded"            path="sources/meta-openembedded"/>
-  <project remote="freescale" revision="thud"                         name="meta-freescale-3rdparty"      path="sources/meta-freescale-3rdparty"/>
-  <project remote="freescale" revision="thud"                         name="meta-freescale-distro"        path="sources/meta-freescale-distro"/>
-  <project remote="QT5"       revision="thud"                         name="meta-qt5"                     path="sources/meta-qt5"/>
+  <project remote="yocto"     upstream="thud"                         name="meta-freescale"               path="sources/meta-freescale"/>
+  <project remote="oe"        upstream="thud"                         name="meta-openembedded"            path="sources/meta-openembedded"/>
+  <project remote="freescale" upstream="thud"                         name="meta-freescale-3rdparty"      path="sources/meta-freescale-3rdparty"/>
+  <project remote="freescale" upstream="thud"                         name="meta-freescale-distro"        path="sources/meta-freescale-distro"/>
+  <project remote="QT5"       upstream="thud"                         name="meta-qt5"                     path="sources/meta-qt5"/>
+  <project remote="sbabic"    upstream="thud"                         name="meta-swupdate"                path="sources/meta-swupdate"/>
   <project remote="OSSystems" revision="master"                       name="meta-browser"                 path="sources/meta-browser"/>
-  <project remote="sbabic"    revision="thud"                         name="meta-swupdate"                path="sources/meta-swupdate"/>
 
-	<copyfile dest="README" src="README"/>
-	<copyfile dest="setup-environment" src="setup-environment"/>
+  <project remote="variscite" upstream="thud"                         name="variscite-bsp-base"           path="sources/base">
+	  <copyfile dest="README" src="README"/>
+	  <copyfile dest="setup-environment" src="setup-environment"/>
   </project>
-  <project remote="neat" revision="thud"                              name="neattech_yocto-meta-kama"     path="sources/meta-kama" >
+  <project remote="neat"                                              name="neattech_yocto-meta-kama"     path="sources/meta-kama" >
 	  <copyfile dest="modular-tools" src="tools/modular-tools"/>
   </project>
 
