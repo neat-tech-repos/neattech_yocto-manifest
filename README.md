@@ -6,10 +6,8 @@ To get the BSP you need to have `repo` installed and use it as:
 Install the `repo` utility (done once per machine):
 
 ```shell
-sudo -s
-wget http://commondatastorage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
-chmod a+x /usr/local/bin/repo
-exit
+sudo wget http://commondatastorage.googleapis.com/git-repo-downloads/repo -O /usr/local/bin/repo
+sudo chmod a+x /usr/local/bin/repo
 ```
 
 ## Download BSP source for image
