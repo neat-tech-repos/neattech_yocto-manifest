@@ -1,0 +1,48 @@
+[submodule "sources/meta-freescale"]
+	path = sources/meta-freescale
+	url = https://git.yoctoproject.org/git/meta-freescale
+	branch = dunfell
+[submodule "sources/meta-openembedded"]
+	path = sources/meta-openembedded
+	url = https://github.com/openembedded/meta-openembedded
+	branch = dunfell
+[submodule "sources/meta-freescale-3rdparty"]
+	path = sources/meta-freescale-3rdparty
+	url = https://github.com/Freescale/meta-freescale-3rdparty
+	branch = dunfell
+[submodule "sources/meta-freescale-distro"]
+	path = sources/meta-freescale-distro
+	url = https://github.com/Freescale/meta-freescale-distro
+	branch = dunfell
+[submodule "sources/meta-qt5"]
+	path = sources/meta-qt5
+	url = https://github.com/meta-qt5/meta-qt5
+	branch = dunfell
+[submodule "sources/meta-browser"]
+	path = sources/meta-browser
+	url = https://github.com/OSSystems/meta-browser
+	branch = master
+[submodule "sources/meta-swupdate"]
+	path = sources/meta-swupdate
+	url = https://github.com/sbabic/meta-swupdate
+	branch = dunfell
+[submodule "sources/base"]
+	path = sources/base
+	url = https://github.com/varigit/variscite-bsp-base
+	branch = dunfell
+[submodule "sources/meta-kama"]
+	path = sources/meta-kama
+	url = https://github.com/neat-tech-repos/neattech_yocto-meta-kama
+	branch = dunfell
+[submodule "sources/poky"]
+	path = sources/poky
+	url = https://github.com/neat-tech-repos/neattech_poky
+	branch = dunfell
+[submodule "sources/meta-variscite-fslc"]
+	path = sources/meta-variscite-fslc
+	url = https://github.com/neat-tech-repos/neattech_meta-variscite-fslc
+	branch = dunfell
+[submodule "linux-imx"]
+	path = linux-imx
+	url = https://github.com/neat-tech-repos/neattech_imx6_kernel
+	branch = imx_4.14.78_1.0.0_ga_var01_updated
