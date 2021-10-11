@@ -36,36 +36,32 @@ To build image/flash image to SDCard or prepare swupdate image. We can use some 
 
 ### Setup PC
 
-- Install all dependency packages (note: needs to be done only once when downloading the software)
+Install all dependency packages (note: needs to be done only once when downloading the software)
 
 ```shell
 cd ~/neat-var-fslc-yocto
-
 . modular-tools setup
+```
+
+### Configure build layers on PC 
+
+Configure layers, needs to be done only one time, before first build
+
+```shell
+cd ~/neat-var-fslc-yocto
+. modular-tools configure_layers
 ```
 
 ### Build image on PC
 
 ```shell
 cd ~/neat-var-fslc-yocto
- modular-tools build_image
-```
-
-> On this stage we expect to have an error at some point, this is OK and expected
-
-### Append build layers on PC 
-
-- Append layers, needs to be done only one time, after first build, and then run build image again
-
-```shell
-cd ~/neat-var-fslc-yocto
-
-. modular-tools append_layers
+. modular-tools build_image
 ```
 
 ### Build update image
 
-> Every time after performing once the previuse stages, we need only to run this command in order to create a new update image package
+> Every time after performing the previuse stages, we need to run this command in order to create a new update image package
 
 ```shell
 cd ~/neat-var-fslc-yocto
@@ -85,19 +81,17 @@ See if swupdate exists, if so then SD update was already done and no need to re-
 
 ### Flash image to SD card 
 
-- Flash to SDCard - the SD card flash needs to be done only once per device, this sets different  emmc partitions supporting swupdate 
+- Flash to SDCard - the SD card flash needs to be done only once per device, this sets different emmc partitions supporting swupdate 
 
+```shell
+cd ~/neat-var-fslc-yocto
+. modular-tools build_sd_image
+
+cd ~/neat-var-fslc-yocto
+. modular-tools generate_sd_card
 ```
-$ cd ~/neat-var-fslc-yocto
 
-$ . modular-tools build_sd_image
-
-$ cd ~/neat-var-fslc-yocto
-
-$ . modular-tools generate_sd_card
-
-* in order to find drive letter enter command "df", and view SD card drive (for exampleif ,[/dev/sdb1   media/neat/BOOT-VAR6UL]  -> drive letter is b (from sd b 1)
-```
+> In order to find drive letter enter command "df", and view SD card drive (for example if `[/dev/sdb1   media/neat/BOOT-VAR6UL]` -> drive letter is `b` (from sd b 1)
 
 ### Flash image from SD card to EMMC
 
@@ -139,25 +133,8 @@ At first device powerup issue the following command:
 npm install -g serve
 ```
 
-this will install the needed support for react, this needs to be done only once after flashing the device
+This will install the needed support for react, this needs to be done only once after flashing the device
 
-## Update recips, neattech specific software additional to the OS
-
-```
-notice all recips are taken from:
-https://github.com/neat-tech-repos/neattech_yocto-meta-kama
-this is being pulled whle performing repo sync
-notice that repo xml file is located under .repo/manifasts/default.xml
-and specific git version is specified under:
- <project remote="kamacode" path="sources/meta-kama" name="neattech_yocto-meta-kama" revision="de378558c10950de24ea2d7ed77b70e20ecdf491" >
- 
- so in order to update recips do the following:
- 1. edit the directory : sources/meta-kama
- 2. push to remote : https://github.com/neat-tech-repos/neattech_yocto-meta-kama
- 3. update repo file under: .repo/manifasts/default.xml
- 4. push to remote : https://github.com/neat-tech-repos/neattech_yocto-manifest
-
-```
 ## Cancel Autoload for debugging (only within the Linux system)
 
 The script is located at: `~/neat-var-fslc-yocto/sources/poky`
@@ -205,6 +182,7 @@ original line (line that will auto load):
 @reboot root cd /opt/server/ && systemctl stop nodejs-server && systemctl restart run-chromium && node app.js
 
 ## Update boot images
+
 ```
 notice there are 3 boot images
 first is called "splash image" and is shown first thing on start
@@ -267,9 +245,6 @@ result file would be :  "psplash_white-img.h"
 copy as : 
 
 cp psplash_white-img.h ~/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes-core/psplash/files/psplash-poky-img.h
-
-
-
 ```
 
 ## Prepare and install NRFUTIL
@@ -277,7 +252,7 @@ cp psplash_white-img.h ~/neat-var-fslc-yocto/sources/meta-variscite-fslc/recipes
 
  Install nrfutil by command as below
 
-```
+```shell
 . modular-tools nrfutil_install
 ```
 
@@ -294,16 +269,21 @@ Step 3: Upgrade via serial port.
 
 **Notice** To find serial port of nRF52832, we can use commands. `(It depends on your hardware serial type)`
 
-```
+```shell
 dmesg | grep cdc_acm
+```
+
 or
+
+```shell
+dmesg | grep cdc_acm
 ls -l /dev | grep ttyACM 
 ```
 
-
 To upgrade firmware via serial port. Run command as below 
 
-```
+```shell
 /opt/server/nrfutil -vvv dfu serial -pkg test.zip -p /dev/ttyACM0
-notice /dev/ttyACM0 is serial port name connected to the Nordic, name may be different depends on the platform
 ```
+
+**Notice** `/dev/ttyACM0` is serial port name connected to the Nordic, name may be different depends on the platform

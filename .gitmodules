@@ -46,3 +46,11 @@
 	path = linux-imx
 	url = https://github.com/neat-tech-repos/neattech_imx6_kernel
 	branch = imx_4.14.78_1.0.0_ga_var01_updated
+[submodule "sources/meta-virtualization"]
+	path = sources/meta-virtualization
+	url = https://git.yoctoproject.org/git/meta-virtualization
+	branch = dunfell
+[submodule "sources/meta-clang"]
+	path = sources/meta-clang
+	url = https://github.com/kraj/meta-clang
+	branch = dunfell
