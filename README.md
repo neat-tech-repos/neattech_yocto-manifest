@@ -6,8 +6,10 @@ To get the BSP you need to have `repo` installed and use it as:
 Install the `repo` utility (done once per machine):
 
 ```shell
-sudo wget http://commondatastorage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
-sudo chmod a+x /usr/local/bin/repo
+sudo -s
+wget http://commondatastorage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+chmod a+x /usr/local/bin/repo
+exit
 ```
 
 ## Download BSP source for image
@@ -53,7 +55,7 @@ cd ~/neat-var-fslc-yocto
 
 > On this stage we expect to have an error at some point, this is OK and expected
 
-### Append build layers on PC 
+### Append build layers on PC
 
 - Append layers, needs to be done only one time, after first build, and then run build image again
 
@@ -83,21 +85,21 @@ write : swupdate
 
 See if swupdate exists, if so then SD update was already done and no need to re-perform
 
-### Flash image to SD card 
+### Flash image to SD card
 
 - Flash to SDCard - the SD card flash needs to be done only once per device, this sets different  emmc partitions supporting swupdate 
 
+```shell
+cd ~/neat-var-fslc-yocto
+
+. modular-tools build_sd_image
+
+cd ~/neat-var-fslc-yocto
+
+. modular-tools generate_sd_card
 ```
-$ cd ~/neat-var-fslc-yocto
 
-$ . modular-tools build_sd_image
-
-$ cd ~/neat-var-fslc-yocto
-
-$ . modular-tools generate_sd_card
-
-* in order to find drive letter enter command "df", and view SD card drive (for exampleif ,[/dev/sdb1   media/neat/BOOT-VAR6UL]  -> drive letter is b (from sd b 1)
-```
+> in order to find drive letter enter command "df", and view SD card drive (for exampleif ,[/dev/sdb1   media/neat/BOOT-VAR6UL]  -> drive letter is b (from sd b 1)
 
 ### Flash image from SD card to EMMC
 
