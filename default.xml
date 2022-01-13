@@ -23,9 +23,11 @@
   <project remote="kamacode"  revision="default" name="neattech_meta-variscite-fslc"     path="sources/meta-variscite-fslc"/>
   <project remote="kamacode"  revision="imx_4.14.78_1.0.0_ga_var01" name="neattech_imx6_kernel"     path="linux-imx"/>
 
-  <project remote="variscite" revision="pyro" name="variscite-bsp-base" path="sources/base">
+  <project remote="kamacode" revision="master" name="kama-bsp-base" path="sources/base">
 	<copyfile dest="README" src="README"/>
 	<copyfile dest="setup-environment" src="setup-environment"/>
+  <copyfile dest="kama-setup-environment" src="kama-setup-environment"/>
+  <copyfile dest="build-kama-dev.sh" src="build-kama-dev.sh"/>  
   </project>
   <project remote="kamacode" path="sources/meta-kama" name="neattech_yocto-meta-kama" revision="master" >
 	  <copyfile dest="modular-tools" src="tools/modular-tools"/>
